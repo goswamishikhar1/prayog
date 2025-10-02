@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Completed - Lung Health Test</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="results.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="logo">🫁 LungCheck</div>
+    <div class="subtitle">Test Completed Successfully</div>
+    
+    <!-- Main Content -->
+    <div class="test-completed">
+      <div class="success-icon">✅</div>
+      <h1 class="main-title">Test Completed!</h1>
+      <!-- <p class="description">
+        Your lung health test has been completed successfully. Our advanced sensors have collected 
+        comprehensive data about your respiratory function. Click below to view your detailed results 
+        and personalized health insights.
+      </p> -->
+      
+      <!-- Test Summary -->
+      <!-- <div class="test-summary">
+        <div class="summary-item">
+          <div class="summary-icon">📊</div>
+          <div class="summary-text">
+            <div class="summary-title">Data Collected</div>
+            <div class="summary-desc">Respiratory metrics analyzed</div>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-icon">⏱️</div>
+          <div class="summary-text">
+            <div class="summary-title">Test Duration</div>
+            <div class="summary-desc">30 seconds</div>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-icon">🔬</div>
+          <div class="summary-text">
+            <div class="summary-title">Analysis Status</div>
+            <div class="summary-desc">Ready for review</div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Check Results Button -->
+      <button class="btn check-results-btn" onclick="checkResults()">Check Results</button>
+      
+      <!-- Back to Home Button -->
+      <button class="btn-secondary" onclick="goBackHome()">Back to Home</button>
+    </div>
+  </div>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <h2>Analyzing Results...</h2>
+      <div class="loading">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <polyline id="back" points="50,10 90,50 50,90 10,50 50,10"></polyline>
+          <polyline id="front" points="50,10 90,50 50,90 10,50 50,10"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="results.js"></script>
+
+</body>
+</html>

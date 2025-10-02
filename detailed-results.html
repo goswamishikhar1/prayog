@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Detailed Results - Lung Health Test</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="results.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Scoped minimal layout overrides for the chart section */
+    .chart-card {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .chart-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .chart-controls {
+      display: flex;
+      gap: .5rem;
+    }
+    .btn-ghost {
+      padding: 10px 16px;
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.08); }
+    canvas { max-width: 100%; }
+    .notice { opacity:.8; font-size:.9rem; margin-top: .5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">🫁 LungCheck</div>
+    <div class="subtitle">Real-time Respiratory Flow</div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">🌬️ Airflow Graph</div>
+        <div class="chart-controls">
+          <input id="esp32UrlInput" type="text" placeholder="http://10.94.211.112/sensor" style="min-width:320px;padding:8px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.15);color:#fff;" />
+          <button class="btn-ghost" id="saveUrlBtn">Save URL</button>
+          <button class="btn-ghost" id="toggleStreamBtn">Pause</button>
+          <button class="btn-ghost" id="clearBtn">Clear</button>
+        </div>
+      </div>
+      <canvas id="airflowChart"></canvas>
+      <div id="chartStatus" class="notice">Connecting to sensor…</div>
+      <div class="notice">Note: Replace the ESP32 IP with your device IP.</div>
+    </div>
+
+    <button class="btn" onclick="goBackResults()">Back</button>
+  </div>
+
+  <script src="airflow.js"></script>
+  <script>
+    // Prefill URL input from localStorage or query param
+    (function(){
+      const input = document.getElementById('esp32UrlInput');
+      const params = new URLSearchParams(location.search);
+      const fromQuery = params.get('esp32');
+      const stored = localStorage.getItem('esp32Url');
+      input.value = fromQuery || stored || 'http://10.94.211.112/sensor';
+      document.getElementById('saveUrlBtn').addEventListener('click', function(){
+        const val = input.value.trim();
+        if (!val) return;
+        localStorage.setItem('esp32Url', val);
+        location.reload();
+      });
+    })();
+  </script>
+</body>
+</html>

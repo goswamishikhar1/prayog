@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lung Health Test</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="logo">🫁 LungCheck</div>
+    <!-- <div class="subtitle">Advanced Respiratory Health Assessment</div> -->
+    
+    <!-- Main Content -->
+    <h1 class="main-title">Breathe Easy, Live Better</h1>
+    <!-- <p class="description">
+      Our advanced lung health detection system provides accurate, non-invasive respiratory assessments. 
+      Simply breathe into our device and get instant insights about your lung function and overall respiratory health.
+    </p> -->
+    
+    <!-- Breathing Animation -->
+    <div class="breathing-container">
+      <div class="breathing-circle"></div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Instant Results</div>
+        <div class="feature-desc">Get your lung health assessment in seconds</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔬</div>
+        <div class="feature-title">Medical Grade</div>
+        <div class="feature-desc">Clinically validated technology</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Detailed Analysis</div>
+        <div class="feature-desc">Comprehensive respiratory metrics</div>
+      </div>
+    </div>
+
+    <!-- Start Test Button -->
+    <button class="btn" onclick="goToResults()">blow into the device</button>
+  </div>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <h2>Analyzing Results...</h2>
+      <div class="loading">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <polyline id="back" points="50,10 90,50 50,90 10,50 50,10"></polyline>
+          <polyline id="front" points="50,10 90,50 50,90 10,50 50,10"></polyline>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
